@@ -4,8 +4,8 @@ const map = new mapboxgl.Map(
     {
         container: 'main-map1',
         style: 'mapbox://styles/mapbox/standard',
-        center: [-114.06784, 51.04621],
-        zoom: 6,
+        center: [-79.39218, 43.66370],
+        zoom: 12,
     }
 );
 
@@ -20,13 +20,13 @@ map.on('load', () => {
                     "properties": {
                         "name": "Sidney Smith Hall"
                     },
-                "geometry": {
-                    "coordinates": [
-                        -79.39865237301687,
-                        43.662343395037766
-                    ],
-                    "type": "Point"
-                }
+                    "geometry": {
+                        "coordinates": [
+                            -79.39865237301687,
+                            43.662343395037766
+                        ],
+                        "type": "Point"
+                    }
                 }
             ]
         }
@@ -41,4 +41,18 @@ map.on('load', () => {
             'circle-color': '#B42222'
         }
     });
+
+    map.addSource('buildingdata', {
+        type: 'geojson',
+        data: "https://raw.githubusercontent.com/daniel81017/Lab2/main/wk5-data/buildings.geojson",
+    });
+    map.addLayer({
+        'id': 'buildings-points',
+        'type': 'circle',
+        'source': 'buildingdata',
+        'paint': {
+            'circle-radius': 7,
+            'circle-color': '#007cbf',
+        }
+    })
 });
