@@ -47,42 +47,4 @@ map.on('load', () => {
         },
         'filter': ['==', ['geometry-type'], 'Polygon'], // THIS TYPE/LINE STRING IS A PROBLEM
     });
-    // map.setFilter('walthamstow-lines', ['==', ['get', 'type'], 'LineString']);
-    // console.log("aaa: " + map.getFilter("walthamstow-lines"));
 });
-
-// JUST IN CASE
-// map.addLayer({
-//     'id': 'walthamstow-lines',
-//     'type': 'line',
-//     'source': 'walthamstow-data',
-//     'paint': {
-//         'line-width': 3,
-//         'line-color': '#6e2222'
-//     }
-// });
-
-//  map.addLayer({
-//     'id': 'walthamstow-points',
-//     'type': 'circle',
-//     'source': 'walthamstow-data',
-//     'paint': {
-//         'circle-width': 5,
-//         'circle-color': '#bc9619'
-//     }
-// });
-
-// TO DELETE
-// map.addSource('buildingdata', {
-//     type: 'geojson',
-//     data: "https://raw.githubusercontent.com/daniel81017/Lab2/main/wk5-data/buildings.geojson",
-// });
-// map.addLayer({
-//     'id': 'buildings-points',
-//     'type': 'circle',
-//     'source': 'buildingdata',
-//     'paint': {
-//         'circle-radius': 1,
-//         'circle-color': '#007cbf',
-//     }
-// })
