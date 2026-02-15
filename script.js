@@ -31,15 +31,24 @@ map.on('load', () => {
     // console.log("aaa: " + map.getFilter("walthamstow-lines"));
 });
 
-map.on('load', () => {
+const map2 = new mapboxgl.Map(
+    {
+        container: 'main-map2',
+        style: 'mapbox://styles/mapbox/standard',
+        center: [-0.01624, 51.58548],
+        zoom: 12,
+    }
+);
+
+map2.on('load', () => {
     // console.log("--------");
-    map.addSource('walthamstow-data', {
+    map2.addSource('walthamstow-data', {
         type: 'geojson',
         data: "https://raw.githubusercontent.com/daniel81017/Lab2/refs/heads/main/walthamstowpoints.geojson"
         }
     );
 
-    map.addLayer({
+    map2.addLayer({
         'id': 'walthamstow-points',
         'type': 'circle',
         'source': 'walthamstow-data',
