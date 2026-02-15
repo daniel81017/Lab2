@@ -147,7 +147,7 @@
         {
             "type": "Feature",
             "properties": {
-                "Walthamstow Queen's Road Overground Station": ""
+                "description": "Walthamstow Queen's Road Overground Station"
             },
             "geometry": {
                 "coordinates": [
@@ -161,7 +161,7 @@
         {
             "type": "Feature",
             "properties": {
-                "Walthamstow Central TfL Station": ""
+                "description": "Walthamstow Central TfL Station"
             },
             "geometry": {
                 "coordinates": [
@@ -175,7 +175,7 @@
         {
             "type": "Feature",
             "properties": {
-                "St James Street Overground Station": ""
+                "description": "St James Street Overground Station"
             },
             "geometry": {
                 "coordinates": [
