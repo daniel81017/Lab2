@@ -13,7 +13,6 @@ map.on('load', () => {
     // console.log("--------");
     map.addSource('walthamstow-data', {
         type: 'geojson',
-        //data: "https://raw.githubusercontent.com/daniel81017/Lab2/main/walthamstowlines.geojson"
         data: "https://raw.githubusercontent.com/daniel81017/Lab2/refs/heads/main/walthamstowlines.geojson"
         }
     );
@@ -25,6 +24,28 @@ map.on('load', () => {
         'paint': {
             'line-width': 3,
             'line-color': '#6e2222'
+        },
+        // 'filter': ['get'['==', 'type', 'LineString']], // THIS TYPE/LINE STRING IS A PROBLEM
+    });
+    // map.setFilter('walthamstow-lines', ['==', ['get', 'type'], 'LineString']);
+    // console.log("aaa: " + map.getFilter("walthamstow-lines"));
+});
+
+map.on('load', () => {
+    // console.log("--------");
+    map.addSource('walthamstow-data', {
+        type: 'geojson',
+        data: "https://raw.githubusercontent.com/daniel81017/Lab2/refs/heads/main/walthamstowpoints.geojson"
+        }
+    );
+
+    map.addLayer({
+        'id': 'walthamstow-points',
+        'type': 'circle',
+        'source': 'walthamstow-data',
+        'paint': {
+            'circle-width': 3,
+            'circle-color': '#6e2222'
         },
         // 'filter': ['get'['==', 'type', 'LineString']], // THIS TYPE/LINE STRING IS A PROBLEM
     });
