@@ -13,9 +13,8 @@ map.on('load', () => {
     // console.log("--------");
     map.addSource('walthamstow-data', {
         type: 'geojson',
-        data: "https://raw.githubusercontent.com/daniel81017/Lab2/refs/heads/main/walthamstow.geojson"
-    }
-    );
+        data: "https://raw.githubusercontent.com/daniel81017/Lab2/refs/heads/main/walthamstow.geojson",
+    });
 
     map.addLayer({
         'id': 'walthamstow-lines',
@@ -49,15 +48,10 @@ map.on('load', () => {
         'filter': ['==', ['geometry-type'], 'Polygon'], // THIS TYPE/LINE STRING IS A PROBLEM
     });
 
-    //Source: https://docs.mapbox.com/mapbox-gl-js/example/popup-on-click/
-    //When a click event occurs on a feature in the places layer, open a popup at the
-    // location of the feature, with description HTML from its properties.
     map.addInteraction('walthamstow-click-interaction', {
         type: 'click',
         target: { layerId: 'walthamstow-points'},
         handler: (e) => {
-            // Copy coordinates array.
-            console.log("e = ", e);
             const coordinates = e.feature.geometry.coordinates.slice();
             const description = e.feature.properties.description;
 
@@ -69,3 +63,4 @@ map.on('load', () => {
     });
 });
 //Detached head solution: https://stackoverflow.com/questions/10228760/how-do-i-fix-a-git-detached-head
+//Mapbox GL JS Docs pop-up on click source: https://docs.mapbox.com/mapbox-gl-js/example/popup-on-click/
