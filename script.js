@@ -53,7 +53,7 @@ map.on('load', () => {
         handler: (e) => {
             const coordinates = e.feature.geometry.coordinates.slice();
             const description = e.feature.properties.description;
-
+            
             new mapboxgl.Popup()
                 .setLngLat(coordinates)
                 .setHTML(description)
@@ -61,5 +61,6 @@ map.on('load', () => {
         }
     });
 });
+
 //Detached head solution: https://stackoverflow.com/questions/10228760/how-do-i-fix-a-git-detached-head
 //Mapbox GL JS Docs pop-up on click source: https://docs.mapbox.com/mapbox-gl-js/example/popup-on-click/
