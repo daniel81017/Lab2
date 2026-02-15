@@ -4,13 +4,12 @@ const map = new mapboxgl.Map(
     {
         container: 'main-map1',
         style: 'mapbox://styles/mapbox/standard',
-        center: [-0.01624, 51.58548],
-        zoom: 12,
+        center: [-0.02421, 51.58095],
+        zoom: 12.5,
     }
 );
 
 map.on('load', () => {
-    // console.log("--------");
     map.addSource('walthamstow-data', {
         type: 'geojson',
         data: "https://raw.githubusercontent.com/daniel81017/Lab2/refs/heads/main/walthamstow.geojson",
@@ -22,9 +21,9 @@ map.on('load', () => {
         'source': 'walthamstow-data',
         'paint': {
             'line-width': 3,
-            'line-color': '#6e2222'
+            'line-color': '#210059'
         },
-        'filter': ['==', ['geometry-type'], 'LineString'], // THIS TYPE/LINE STRING IS A PROBLEM
+        'filter': ['==', ['geometry-type'], 'LineString'],
     });
 
     map.addLayer({
@@ -32,10 +31,10 @@ map.on('load', () => {
         'type': 'circle',
         'source': 'walthamstow-data',
         'paint': {
-            'circle-width': 10,
-            'circle-color': '#160202'
+            'circle-width': 40,
+            'circle-color': '#008000'
         },
-        'filter': ['==', ['geometry-type'], 'Point'], // THIS TYPE/LINE STRING IS A PROBLEM
+        'filter': ['==', ['geometry-type'], 'Point'],
     });
     map.addLayer({
         'id': 'walthamstow-polygon',
@@ -43,14 +42,14 @@ map.on('load', () => {
         'source': 'walthamstow-data',
         'paint': {
             'line-width': 3,
-            'line-color': '#ec1616'
+            'line-color': '#ff0000'
         },
-        'filter': ['==', ['geometry-type'], 'Polygon'], // THIS TYPE/LINE STRING IS A PROBLEM
+        'filter': ['==', ['geometry-type'], 'Polygon'],
     });
 
     map.addInteraction('walthamstow-click-interaction', {
         type: 'click',
-        target: { layerId: 'walthamstow-points'},
+        target: { layerId: 'walthamstow-points' },
         handler: (e) => {
             const coordinates = e.feature.geometry.coordinates.slice();
             const description = e.feature.properties.description;
