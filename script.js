@@ -31,7 +31,7 @@ map.on('load', () => {
         'type': 'circle',
         'source': 'walthamstow-data',
         'paint': {
-            'circle-width': 40,
+            'circle-width': 10,
             'circle-color': '#008000'
         },
         'filter': ['==', ['geometry-type'], 'Point'],
@@ -49,8 +49,9 @@ map.on('load', () => {
 
     map.addInteraction('walthamstow-click-interaction', {
         type: 'click',
-        target: { layerId: 'walthamstow-points' },
+        target: {layerId: 'walthamstow-points'},
         handler: (e) => {
+            console.log("e =", e);
             const coordinates = e.feature.geometry.coordinates.slice();
             const description = e.feature.properties.description;
             
@@ -62,5 +63,6 @@ map.on('load', () => {
     });
 });
 
+//Filter source: https://github.com/mapbox/mapbox-gl-js/issues/6508
 //Detached head solution: https://stackoverflow.com/questions/10228760/how-do-i-fix-a-git-detached-head
 //Mapbox GL JS Docs pop-up on click source: https://docs.mapbox.com/mapbox-gl-js/example/popup-on-click/
