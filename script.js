@@ -3,7 +3,7 @@ mapboxgl.accessToken = "pk.eyJ1IjoiZGFuaWVsODEwMTciLCJhIjoiY21rZWI2eGg4MDU5NjNsc
 const map = new mapboxgl.Map(
     {
         container: 'main-map1',
-        style: 'mapbox://styles/mapbox/standard',
+        style: 'mapbox://styles/daniel81017/cmlofeooa000l01qp4lzgenj9',
         center: [-0.02421, 51.58095],
         zoom: 12.5,
     }
@@ -32,7 +32,7 @@ map.on('load', () => {
         'source': 'walthamstow-data',
         'paint': {
             'circle-width': 10,
-            'circle-color': '#008000'
+            'circle-color': '#17ec17'
         },
         'filter': ['==', ['geometry-type'], 'Point'],
     });
