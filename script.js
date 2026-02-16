@@ -32,7 +32,8 @@ map.on('load', () => {
         'source': 'walthamstow-data',
         'paint': {
             'circle-width': 10,
-            'circle-color': '#17ec17'
+            'circle-color': '#000000',
+            'circle-outline': 2,
         },
         'filter': ['==', ['geometry-type'], 'Point'],
     });
